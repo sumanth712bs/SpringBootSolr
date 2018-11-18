@@ -28,7 +28,7 @@ public class Book {
     @Field
     private String description;
 
-    @Field("categories_text")
+    @Field("categories")
     private List<Category> categories;
 
 }
