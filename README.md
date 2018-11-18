@@ -3,6 +3,8 @@
 
 Step 1:
 Start solr and create solr core. Execute below commands in solr bin
+
+
   ./solr status
   ./solr start
   ./solr create -c book
