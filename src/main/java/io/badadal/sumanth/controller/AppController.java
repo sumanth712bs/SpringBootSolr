@@ -52,6 +52,7 @@ public class AppController {
 
     @PostConstruct
     public void addAllBooks(){
+        this.repository.deleteAll();
         repository.save(new Book(UUID.randomUUID().toString(), "Clean Code", "Best coding practises",
                 Stream.of(Category.EDUCATION, Category.TECHNOLOGY).collect(
                         Collectors.toList())));
