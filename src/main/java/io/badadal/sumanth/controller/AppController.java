@@ -30,8 +30,8 @@ public class AppController {
     @Autowired
     private BookRepository repository;
 
-    @PostMapping("/bookpost")
-    public ResponseEntity<?> addBook(){
+    @PostMapping("/book")
+    public ResponseEntity<?> addBook() {
         repository.save(new Book(UUID.randomUUID().toString(), "Clean Code", "Best coding practises",
                 Stream.of(Category.EDUCATION, Category.TECHNOLOGY).collect(
                         Collectors.toList())));
@@ -43,15 +43,15 @@ public class AppController {
     }
 
     @GetMapping("/book")
-    public ResponseEntity<List<Book>> getAllBooks(){
+    public ResponseEntity<List<Book>> getAllBooks() {
 
-    List<Book> books =   new ArrayList<>();
-    repository.findAll().forEach(books :: add);
-    return new ResponseEntity<>(books, HttpStatus.OK);
+        List<Book> books = new ArrayList<>();
+        repository.findAll().forEach(books::add);
+        return new ResponseEntity<>(books, HttpStatus.OK);
     }
 
     @PostConstruct
-    public void addAllBooks(){
+    public void addAllBooks() {
         this.repository.deleteAll();
         repository.save(new Book(UUID.randomUUID().toString(), "Clean Code", "Best coding practises",
                 Stream.of(Category.EDUCATION, Category.TECHNOLOGY).collect(

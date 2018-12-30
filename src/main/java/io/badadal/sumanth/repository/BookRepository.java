@@ -9,4 +9,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface BookRepository extends SolrCrudRepository<Book, String> {
+
+    Book findBookByName(String bookName);
 }
